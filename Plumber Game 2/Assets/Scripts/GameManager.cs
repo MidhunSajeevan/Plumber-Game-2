@@ -10,7 +10,6 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject _gameoverpopup;
     void Start()
     {
-        // Subscribe to the game over event
         FindObjectOfType<GameEventSystem>().onGameOver.AddListener(ShowGameOverPopUp);
     }
     public void Play()
@@ -27,7 +26,7 @@ public class GameManager : MonoBehaviour
     }
     public void PlayAgain()
     {
-        Time.timeScale = 1f;
+       Time.timeScale = 1f;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
     public void ShowGameOverPopUp()

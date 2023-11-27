@@ -26,13 +26,13 @@ public class Behaviour : MonoBehaviour
          
                 DragAndDrop dragAndDropScript = hit.collider.GetComponent<DragAndDrop>();
 
-                // If it doesn't have the script, add it
+             
                 if (dragAndDropScript == null)
                 {
                     dragAndDropScript = hit.collider.gameObject.AddComponent<DragAndDrop>();
                 }
 
-                // Record the initial offset for dragging
+               
                 dragAndDropScript.StartDragging(offset);
                 isDragging = true;
             }
@@ -45,7 +45,7 @@ public class Behaviour : MonoBehaviour
 
         if (isDragging)
         {
-            // Update the offset during dragging
+        
             offset = _camera.ScreenToWorldPoint(Input.mousePosition) - transform.position;
         }
     }

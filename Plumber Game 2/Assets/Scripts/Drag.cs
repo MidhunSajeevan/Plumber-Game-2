@@ -15,7 +15,7 @@ public class Drag : MonoBehaviour
     {
         isDragging = false;
 
-        // Detect other puzzle pieces underneath
+     
         Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, 0.1f);
 
         foreach (Collider2D collider in colliders)

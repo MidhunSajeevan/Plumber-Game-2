@@ -5,7 +5,6 @@ public class DragAndDrop : MonoBehaviour
     private bool isDragging = false;
     private Vector3 offset;
 
-    // Called when dragging starts
     public void StartDragging(Vector3 initialOffset)
     {
         isDragging = true;

@@ -21,7 +21,7 @@ public class Timer : MonoBehaviour
         ResetTimer();
     }
 
-    // Update is called once per frame
+  
     void Update()
     {
         CallTimerFuction();
@@ -72,7 +72,7 @@ public class Timer : MonoBehaviour
         {
             _timer = 0;
             UpdateDisplay(_timer);
-            // Show Game Over Pop up Here
+      
             FindObjectOfType<GameEventSystem>().TriggerGameOverEvent();
         }
     }
