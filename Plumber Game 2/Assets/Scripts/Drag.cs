@@ -1,30 +1,36 @@
 
+using Unity.Mathematics;
 using UnityEngine;
 
 public class Drag : MonoBehaviour
 {
     private bool isDragging = false;
     private Vector3 offset;
-
+    private SpriteRenderer spriteRenderer;
+    Vector2 Temp;
     private void OnMouseDown()
     {
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        spriteRenderer.sortingOrder = 2;
         offset = transform.position - Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        Temp = transform.position;
         isDragging = true;
     }
     private void OnMouseUp()
     {
         isDragging = false;
+        spriteRenderer.sortingOrder = 1;
 
-     
-        Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, 0.1f);
-
-        foreach (Collider2D collider in colliders)
+      
+        Collider2D colliders1 = Physics2D.OverlapBox(transform.position,transform.localScale,2);
+        if(colliders1 == null )
         {
-            if (collider.CompareTag("PuzzlePiece") && collider.gameObject != gameObject)
-            {
-                SwapPositions(collider.gameObject);
-            }
+            transform.position = Temp; 
         }
+   
+        transform.position = colliders1.transform.position;
+        colliders1.transform.position = Temp;   
+        
     }
     void OnMouseDrag()
     {
