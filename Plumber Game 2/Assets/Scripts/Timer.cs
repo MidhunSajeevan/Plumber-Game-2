@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Timer : MonoBehaviour
 {
-    private float _timer = 0f;
+    public float _timer = 0f;
     private float _timeduration = 60f * 2f;
     private bool _isFlashing = false;
     private float flashInterval = 0.1f;

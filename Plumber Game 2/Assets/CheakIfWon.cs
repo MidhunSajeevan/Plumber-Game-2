@@ -7,7 +7,7 @@ public class CheakIfWon : MonoBehaviour
     [SerializeField]
     public Transform[] _puzzles;
     private Transform[] _tempTransform;
-    private bool _isCompleted = false;
+    public bool _isCompleted = false;
 
     public bool IsCompleted
     {
