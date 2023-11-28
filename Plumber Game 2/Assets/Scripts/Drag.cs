@@ -12,6 +12,7 @@ public class Drag : MonoBehaviour
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
         spriteRenderer.sortingOrder = 2;
+        spriteRenderer.color = Color.green;
         offset = transform.position - Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Temp = transform.position;
         isDragging = true;
@@ -20,17 +21,21 @@ public class Drag : MonoBehaviour
     {
         isDragging = false;
         spriteRenderer.sortingOrder = 1;
+        spriteRenderer.color = Color.white;
 
-      
         Collider2D colliders1 = Physics2D.OverlapBox(transform.position,transform.localScale,2);
         if(colliders1 == null )
         {
-            transform.position = Temp; 
+            transform.position = Temp;
         }
-   
-        transform.position = colliders1.transform.position;
-        colliders1.transform.position = Temp;   
-        
+        else
+        {
+            
+            transform.position = colliders1.transform.position;
+            colliders1.transform.position = Temp;
+        }
+
+
     }
     void OnMouseDrag()
     {
@@ -50,10 +55,5 @@ public class Drag : MonoBehaviour
             transform.Translate(MousePositon);
         }
     }
-    void SwapPositions(GameObject otherPuzzle)
-    {
-        Vector3 tempPos = otherPuzzle.transform.position;
-        otherPuzzle.transform.position = transform.position;
-        transform.position = tempPos;
-    }
+  
 }
